@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "author": "Smart Intrusion Detection - IoT Lab",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp32", "top": -14.5, "left": -72.2, "attrs": {} },
+    { "type": "wokwi-pir-motion-sensor", "id": "pir1", "top": -82.4, "left": 280.62, "attrs": {} },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 232.8,
+      "left": 280.2,
+      "rotate": 180,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 212.8,
+      "left": 109.8,
+      "rotate": 180,
+      "attrs": { "color": "red", "flip": "1" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 167.15,
+      "left": 192,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+    [ "pir1:OUT", "esp32:13", "green", [] ],
+    [ "pir1:OUT", "esp32:D13", "green", [ "v0" ] ],
+    [ "led1:A", "r1:1", "green", [ "v0" ] ],
+    [ "r1:2", "esp32:D2", "green", [ "v0" ] ],
+    [ "led1:C", "esp32:GND.1", "green", [ "v0" ] ],
+    [ "bz1:2", "esp32:D4", "green", [ "v0" ] ],
+    [ "bz1:1", "esp32:GND.1", "yellow", [ "v-164.6", "h-299.1" ] ],
+    [ "pir1:VCC", "esp32:3V3", "red", [ "v0" ] ],
+    [ "pir1:GND", "esp32:GND.2", "black", [ "v74.4", "h-402.84" ] ]
+  ],
+  "dependencies": {}
+}
